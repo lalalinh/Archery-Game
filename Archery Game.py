@@ -2,6 +2,7 @@
 # Archery graphics
 # Targeting arrow
 # Scoreboard review: Set #: (points)
+
 import turtle 
 import random
 
@@ -107,20 +108,20 @@ while radius >= 0:
         romeo.pd()
         romeo.circle(radius)
         romeo.end_fill()
-
+    
     # Labeling the score each circle coordinates
     romeo.ht()
     romeo.pu()
     romeo.goto(radius - 10.5, 5)
     romeo.pd()
     if num <= 9:
-     romeo.write(f"{num}", font=("Monospace", 10, "normal"))
+     romeo.write(f"{num}", font=("Monospace", 9, "bold"))
 
 # 'SCORE' LABEL
 pen_zero = turtle.Turtle()
 pen_zero.ht()
 pen_zero.pu()
-pen_zero.goto(-70, 220)
+pen_zero.goto(-65, 220)
 pen_zero.write("Score: ", font=("Arial", 20, "bold"))
 
 # BALL SET-UP
@@ -185,8 +186,8 @@ def scoring():
  elif point.distance(juliet) <= 15:
    score += 10
    attempt -= 1
-
- # Erase the last score and show the new score
+ 
+ # Erase the last score and show the new score after clicking
  pen.clear()
  pen.write(score, font=("Monospace", 20, "normal"))
  # Randomize the ball's location 
@@ -199,10 +200,10 @@ def scoring():
   if attempt == 0:
    pen_zero.clear()
    pen.clear()
-   pen.goto(-95, 220)
+   pen.goto(-80, 220)
    pen.write(f"Total: {score}/100", font=("Monospace", 20, "normal"))
    break
-
+   
 
 wn.listen()
 wn.onkey(scoring, "Up")
